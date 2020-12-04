@@ -2,7 +2,7 @@
 
     position:fixed;
     right:20px;
-    top:25px;
+    top:30px;
  }
 
  #myInput {
@@ -19,6 +19,8 @@
   header, .full-width {
     width: 100%;
     background: blue;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .wrap {
@@ -26,6 +28,7 @@
     max-width: 24em;
     margin: 0 auto;
     padding: 0.25em 0.625em;
+    background-color: yellow;
   }
 
   #dashboard {
