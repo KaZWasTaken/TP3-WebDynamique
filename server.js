@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/my_databaseMongoDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    useCreateIndex: true
+    useCreateIndex: true,
 });
 
 //3-Création du model
