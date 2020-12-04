@@ -16,4 +16,22 @@ button:hover {
   /* Add padding to containers */
   .container {
     padding: 200px;
+
   }
+
+.Log {
+  background-color: yellow;
+  position: fixed;
+  border: 1px solid blue;
+  padding: 0px 10px 10px 10px;
+}
+
+#submit {
+  margin: 10px;
+}
+
+h3 {
+  border: 1px solid blue;
+  text-align: center;
+
+}

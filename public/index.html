@@ -11,31 +11,34 @@
 
 <body>
     <div class="container">
-        <h3>Sign up or Login</h3>
-        <form action="">
-            <div class="row">
-                <div class="col-25">
-                    <label for="username">Nom</label>
+        <div class="Log">
+            <h3>Sign up or Login</h3>
+            <form action="">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="username">Nom</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="nom" name="nom" placeholder="Username" required>
+                    </div>
                 </div>
-                <div class="col-75">
-                    <input type="text" id="nom" name="nom" placeholder="Username" required>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Mot De Passe</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="password" id="*passwordbox-id*" name="password" placeholder="Password"
+                            minlength="8" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="lname">Mot De Passe</label>
-                </div>
-                <div class="col-75">
-                    <input type="password" id="*passwordbox-id*" name="password" placeholder="Password" minlength="8"
-                        required>
-                </div>
-            </div>
 
-            <div class="row">
-                <input id="submit" type="button" value="Sign Up">
-                <input id="submit" type="button" value="Sign In">
-            </div>
-        </form>
+                <div class="row">
+
+                    <input id="submit" type="button" value="Sign Up">
+                    <input id="submit" type="button" value="Login">
+                </div>
+            </form>
+        </div>
     </div>
     <script>
         document.getElementById("submit").addEventListener("click", function (
