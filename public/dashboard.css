@@ -1,8 +1,14 @@
+body {
+    background-color: rgb(43, 153, 226);
+}
+
+
 .logoutLblPos{
 
     position:fixed;
-    right:20px;
+    right:30px;
     top:30px;
+    
  }
 
  #myInput {
@@ -16,11 +22,10 @@
     margin-bottom: 10px; /* Add some space below the input */
   }
 
-  header, .full-width {
+  #header {
     width: 100%;
     background: blue;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    
   }
 
   .wrap {
@@ -29,6 +34,13 @@
     margin: 0 auto;
     padding: 0.25em 0.625em;
     background-color: yellow;
+  }
+
+  #company{
+      padding: 4px 4px 1px 4px; /*top, right, bottom, left*/
+      position: absolute; left:30px; top:6px;
+      background-color: yellow;
+      font-size: 25px;
   }
 
   #dashboard {
