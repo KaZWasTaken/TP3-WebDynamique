@@ -38,7 +38,7 @@ body {
 
   #company{
       padding: 4px 4px 1px 4px; /*top, right, bottom, left*/
-      position: absolute; left:30px; top:6px;
+      position: absolute; left:25px; top:6px;
       background-color: yellow;
       font-size: 25px;
   }

@@ -15,15 +15,21 @@ button:hover {
 }
   /* Add padding to containers */
   .container {
+    align-items: center;
+    justify-content: center;
     padding: 200px;
-
+    display: flex;
   }
 
 .Log {
   background-color: yellow;
-  position: fixed;
   border: 1px solid blue;
-  padding: 0px 10px 10px 10px;
+  padding: 10px 20px 20px 20px;
+}
+
+#SignLog {
+text-align: center;
+font-size: larger;
 }
 
 #submit {
@@ -32,6 +38,10 @@ button:hover {
 
 h3 {
   border: 1px solid blue;
-  text-align: center;
 
+}
+
+#login {
+  overflow: hidden;
+  position: relative;
 }
