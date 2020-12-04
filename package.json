@@ -1,0 +1,28 @@
+{
+  "name": "TP3-WebDynamique",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.3",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaZWasTaken/TP3-WebDynamique.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaZWasTaken/TP3-WebDynamique/issues"
+  },
+  "homepage": "https://github.com/KaZWasTaken/TP3-WebDynamique#readme"
+}
