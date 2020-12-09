@@ -22,7 +22,7 @@
                         <label for="username">Nom</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="nom" name="nom" placeholder="Username" required>
+                        <input type="text" id="nom" name="nom" placeholder="Username " required>
                     </div>
                 </div>
                 <div class="row">
@@ -30,20 +30,42 @@
                         <label for="lname">Mot De Passe</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="*passwordbox-id*" name="password" placeholder="Password" minlength="8"
-                            required>
+                        <input type="password" id="*passwordbox-id*" name="password" placeholder="Password"
+                            minlength="8" required>
                     </div>
                 </div>
 
                 <div id="SignLog" class="row">
 
-                    <input id="submit" type="button" value="Sign Up">
+                    <input id="submit" disabled type="button" value="Sign Up">
                     <input id="enter" type="button" value="Login">
                 </div>
             </form>
         </div> /
     </div>
     <script>
+        // testing
+        const login = document.getElementById('login'); //signupform
+        const nom = document.getElementById('nom'); //emailfield
+        const submit = document.getElementById('submit'); //okButton
+
+        nom.addEventListener('keyup', function (event) {
+            isValidName = nom.checkValidity();
+
+            if (isValidName) {
+                submit.disabled = false;
+            } else {
+                submit.disabled = true;
+            }
+        });
+
+        submit.addEventListener('click', function (event) {
+            login.submit();
+        })
+        //testing
+
+
+        // envoyer les informations du Form à la base de donnée pour SignUp
         document.getElementById("submit").addEventListener("click", function (
         ) {
             fetch("/api/stuff", {
@@ -72,9 +94,10 @@
                 error.message //=> String
             })
         })
+        // prendre les informations du Form pour les comparée à la base de donnée pour login
         document.getElementById("enter").addEventListener("click", function (
         ) {
-            fetch("/api/stuff", {
+            fetch("/api/login", {
                 method: "POST",
                 body: JSON.stringify({
                     nom: document.getElementById("nom").value, password: document.getElementById("*passwordbox-id*").value

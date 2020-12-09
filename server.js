@@ -52,6 +52,8 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
 })
 
+app.post('/api/login', (req, res) =>)
+
 //Permet de créer des articles
 app.post('/api/stuff', (req, res) => {
     /* console.log(req.body);
