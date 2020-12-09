@@ -16,13 +16,13 @@
                 <h3>Sign up or Login</h3>
             </div>
 
-            <form id="login" action="required">
+            <form id="login">
                 <div class="row">
                     <div class="col-25">
                         <label for="username">Nom</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="nom" name="nom" placeholder="Username" required />
+                        <input type="text" id="nom" name="nom" placeholder="Username" required>
                     </div>
                 </div>
                 <div class="row">
@@ -30,8 +30,8 @@
                         <label for="lname">Mot De Passe</label>
                     </div>
                     <div class="col-75">
-                        <input type="password" id="*passwordbox-id*" name="password" placeholder="Password"
-                            minlength="8" required />
+                        <input type="text" id="*passwordbox-id*" name="password" placeholder="Password" minlength="8"
+                            required>
                     </div>
                 </div>
 
@@ -60,6 +60,34 @@
                     alert("erreur inconnue")
                 } else {
                     alert("Compte Sauvegardé !")
+                    window.location.replace("/dashboard.html")
+                }
+                response.status //=> number 100–599
+                response.statusText //=> String
+                response.headers //=> Headers
+                response.url //=> String
+
+                return response.text()
+            }, function (error) {
+                error.message //=> String
+            })
+        })
+        document.getElementById("enter").addEventListener("click", function (
+        ) {
+            fetch("/api/stuff", {
+                method: "POST",
+                body: JSON.stringify({
+                    nom: document.getElementById("nom").value, password: document.getElementById("*passwordbox-id*").value
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "same-origin"
+            }).then(function (response) {
+                if (response.status != 200) {
+                    alert("erreur inconnue")
+                } else {
+                    alert("Reconnu et accepté!")
                     window.location.replace("/dashboard.html")
                 }
                 response.status //=> number 100–599

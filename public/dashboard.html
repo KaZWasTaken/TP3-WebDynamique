@@ -12,15 +12,23 @@
     <div id="header">
         <div class="wrap">
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher">
-            <form align="right" name="form1" method="post" action="#">
+            <form align="right" name="form1" method="post">
                 <label class="logoutLblPos">
-                    <input name="submit2" type="submit" id="submit2" value="Déconnexion">
+                    <input type="button" id="submit2" value="Déconnexion">
                 </label>
             </form>
         </div>
     </div>
     <h1 id="company"> THE Company </h1>
     <h1 id="dashboard">Dashboard</h1>
+
+    <script>
+        document.getElementById("submit2").addEventListener("click", function () {
+            alert("Déconnecté avec succès!")
+            window.location.replace("/index.html")
+        })
+       //
+    </script>
 </body>
 
 </html>
