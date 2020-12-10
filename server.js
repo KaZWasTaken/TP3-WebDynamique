@@ -27,13 +27,23 @@ mongoose.connect('mongodb://localhost/my_databaseMongoDB', {
 });
 
 //3-Création du model
-const thingSchema = mongoose.Schema({
-    nom: String,
-    password: String,
+const userSchema = mongoose.Schema({
+    nom: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 15
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 1024
+    }
 });
 
 //4- Pour accéder model
-const Thing = mongoose.model('Thing', thingSchema);
+const User = mongoose.model('User', userSchema);
 
 //5- Créer l'objet et le sauvgarder
 /* const instance = new Thing();
@@ -52,39 +62,77 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
 })
 
-app.post('/api/login', (req, res) => {
-    user = Thing.findOne({ nom: req.body.nom, password: req.body.password })
+app.post('/api/login', async (req, res) => {
+    try {
+        const user = await User.findOne({ nom: req.body.nom });
+        console.log(user);
 
-    if (!user) {
-        return res.status(400).send('Utilisateur ou mot de passe incorrect')
+        if (!user) {
+            return res.status(400).send('Nom utilisateur incorrect')
+        }
+
+        if (req.body.password == user.password) {
+            res.status(200).send('Connexion réussi');
+        }
+        else {
+            res.status(400).send('Mot de passe incorrect')
+        }
+
+    } catch (error) {
+        return res.status(400).send({
+            error: true,
+            reason: err.message
+        })
     }
-
-    if (req.body.password == user.password) {
-        return res.status(200).send('Vous êtes connecté')
-    }
-
 });
 
-//Permet de créer des articles
-app.post('/api/stuff', (req, res) => {
+//Créer un utilisateur
+app.post('/api/stuff', async (req, res) => {
+
+    try {
+        const findUser = await User.findOne({ nom: req.body.nom }).exec();
+
+        if (findUser !== null) {
+            throw new Error('Cet utilisateur existe déjà')
+        }
+        console.log("Nom d'utilisateur vérifié")
+
+        const user = new User({
+            nom: req.body.nom,
+            password: req.body.password
+        })
+
+        console.log(user);
+        user.save();
+        res.send('Compte sauvgardé');
+
+    } catch (err) {
+        return res.status(400).send({
+            error: true,
+            reason: err.message
+        })
+    }
+
+
+
     /* console.log(req.body);
     res.status(201).json({
         message: 'Objet créé !'
     });
 }); */
     //on va créer un nouveau objet
-    thing = new Thing({
-        //prends tous les champs de la req
-        nom: req.body.nom,
-        password: req.body.password,
-    });
-
-
-    thing.save()
-        .then(() => res.status(200).json({ message: 'Objet enregistré!' }))
-        .catch(error => res.status(400).json({ error })); //dans le catch on recupere l'erreur
-
-    console.log(req.body);
+    /*() thing = new Thing({
+         //prends tous les champs de la req
+         nom: req.body.nom,
+         password: req.body.password,
+     });
+ 
+ 
+     thing.save()
+         .then(() => res.status(200).json({ message: 'Objet enregistré!' }))
+         .catch(error => res.status(400).json({ error })); //dans le catch on recupere l'erreur
+ 
+     console.log(req.body);*/
 
 
     //sauvegarde: dans le then on envoie une reponse au front end
@@ -97,8 +145,8 @@ app.post('/api/stuff', (req, res) => {
 //pour aller chercher les items qui sont dans ma bd
 app.get('/api/stuff', function (req, res) {
 
-    Thing.find()
-        .then(things => res.status(200).json(things)) //Promise. Dans le then :on va lui retourner tous les objets dans la base
+    User.find()
+        .then(users => res.status(200).json(users)) //Promise. Dans le then :on va lui retourner tous les objets dans la base
         .catch(error => res.status(400).json({ error }));
 })
 
