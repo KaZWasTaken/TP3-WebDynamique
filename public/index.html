@@ -81,9 +81,9 @@
                 credentials: "same-origin"
             }).then(function (response) {
                 if (response.status != 200) {
-                    alert("erreur inconnue")
+                    alert("Nom d'utilisateur déjà existant. Appuyez sur OK et réessayez.")
                 } else {
-                    alert("Compte Sauvegardé !")
+                    alert("Compte Sauvegardé ! Appuyez sur OK pour continuer.")
                     window.location.replace("/dashboard.html")
                 }
                 response.status //=> number 100–599
@@ -110,9 +110,9 @@
                 credentials: "same-origin"
             }).then(function (response) {
                 if (response.status != 200) {
-                    alert("erreur inconnue")
+                    alert("Nom d'utilisateur ou mot de passe incorrect")
                 } else {
-                    alert("Reconnu et accepté!")
+                    alert("Connexion réussi! Appuyez sur OK pour continuer.")
                     window.location.replace("/dashboard.html")
                 }
                 response.status //=> number 100–599
