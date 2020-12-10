@@ -53,6 +53,15 @@ app.get('/', function (req, res) {
 })
 
 app.post('/api/login', (req, res) => {
+    user = Thing.findOne({ nom: req.body.nom, password: req.body.password })
+
+    if (!user) {
+        return res.status(400).send('Utilisateur ou mot de passe incorrect')
+    }
+
+    if (req.body.password == user.password) {
+        return res.status(200).send('Vous êtes connecté')
+    }
 
 });
 
@@ -69,13 +78,18 @@ app.post('/api/stuff', (req, res) => {
         nom: req.body.nom,
         password: req.body.password,
     });
-    //sauvegarde: dans le then on envoie une reponse au front end
-    //sinon expiration de la requete
+
+
     thing.save()
         .then(() => res.status(200).json({ message: 'Objet enregistré!' }))
         .catch(error => res.status(400).json({ error })); //dans le catch on recupere l'erreur
 
     console.log(req.body);
+
+
+    //sauvegarde: dans le then on envoie une reponse au front end
+    //sinon expiration de la requete
+
 
 });
 

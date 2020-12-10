@@ -38,7 +38,7 @@
                 <div id="SignLog" class="row">
 
                     <input id="submit" disabled type="button" value="Sign Up">
-                    <input id="enter" type="button" value="Login">
+                    <input id="enter" disabled type="button" value="Login">
                 </div>
             </form>
         </div> /
@@ -54,8 +54,10 @@
 
             if (isValidName) {
                 submit.disabled = false;
+                enter.disabled = false;
             } else {
                 submit.disabled = true;
+                enter.disabled = true;
             }
         });
 
