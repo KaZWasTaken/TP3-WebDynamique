@@ -19,7 +19,7 @@
             <form id="login">
                 <div class="row">
                     <div class="col-25">
-                        <label for="username">Nom</label>
+                        <label for="username">Nom d'utilisateur</label>
                     </div>
                     <div class="col-75">
                         <input type="text" id="nom" name="nom" placeholder="Username " required>
@@ -81,8 +81,9 @@
                 credentials: "same-origin"
             }).then(function (response) {
                 if (response.status != 200) {
-                    alert("Nom d'utilisateur déjà existant. Appuyez sur OK et réessayez.")
-                } else {
+                    alert("Une erreur s'est produite. Appuyez sur OK et réessayez. RAPPEL: Votre nom d'utilisateur et mot de passe doit être d'un minimum de trois caractères")
+                }
+                else {
                     alert("Compte Sauvegardé ! Appuyez sur OK pour continuer.")
                     window.location.replace("/dashboard.html")
                 }
