@@ -44,7 +44,7 @@
         </div> /
     </div>
     <script>
-        // testing
+
         const login = document.getElementById('login'); //signupform
         const nom = document.getElementById('nom'); //emailfield
         const submit = document.getElementById('submit'); //okButton
@@ -52,7 +52,7 @@
         nom.addEventListener('keyup', function (event) {
             isValidName = nom.checkValidity();
 
-            if (isValidName) {
+            if (isValidName) {                      //désactive les boutons login et signup si le champs de nom est vide
                 submit.disabled = false;
                 enter.disabled = false;
             } else {
@@ -64,7 +64,7 @@
         submit.addEventListener('click', function (event) {
             login.submit();
         })
-        //testing
+
 
 
         // envoyer les informations du Form à la base de donnée pour SignUp
